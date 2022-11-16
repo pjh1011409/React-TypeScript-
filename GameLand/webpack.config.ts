@@ -19,7 +19,7 @@ const config: Configuration = {
     extensions: ['.js', '.jsx', '.tsx', '.ts'],
   },
   entry: {
-    app: './client',
+    app: './src/client',
   },
   module: {
     rules: [
