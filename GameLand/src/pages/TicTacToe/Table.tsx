@@ -10,7 +10,7 @@ interface Props {
 }
 const Table = ({ tableData, dispatch }: Props) => {
   return (
-    <table className="mx-auto border-collapse">
+    <table className="mx-auto border-collapse border-4 border-[#5061b3]">
       {Array(tableData.length)
         .fill(null)
         .map((tr, i) =>

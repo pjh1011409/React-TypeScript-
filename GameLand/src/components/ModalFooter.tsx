@@ -11,6 +11,7 @@ const ModalFooter = (props: ModalFooter) => {
           type="button"
           onClick={() => {
             props.setShowModal(false);
+
             {
               props.gugudan === '구구단' && window.location.replace('/gugudan');
             }
@@ -33,6 +34,10 @@ const ModalFooter = (props: ModalFooter) => {
             {
               props.lotto === '로또뽑기' &&
                 window.location.replace('/lotto-generator');
+            }
+            {
+              props.mine === '지뢰찾기' &&
+                window.location.replace('/mine-search');
             }
             {
               props.tictactoe === '틱텍토' &&

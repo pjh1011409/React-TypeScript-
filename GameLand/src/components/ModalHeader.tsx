@@ -13,6 +13,7 @@ const ModalHeader = (props: ModalHeader) => {
             {props.response === '반응속도체크' && <>{props.response} 결과</>}
             {props.rsp === '반응속도체크' && <>{props.rsp} 결과</>}
             {props.lotto === '로또뽑기' && <>{props.lotto} 결과</>}
+            {props.mine === '지뢰찾기' && <>{props.mine} 결과</>}
             {props.tictactoe === '틱텍토' && <>{props.tictactoe} 결과</>}
           </div>
         </div>

@@ -1,10 +1,15 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { useState, useRef, useCallback } from 'react';
 import Modal from '../../components/Modal';
+// import ts from 'tailwind-styled-components';
 
 const GuGuDan = () => {
-  const [first, setFirst] = useState(Math.ceil(Math.random() * 9));
-  const [second, setSecond] = useState(Math.ceil(Math.random() * 9));
+  const landomNumber1 = Math.ceil(Math.random() * 9);
+  const landomNumber2 = Math.ceil(Math.random() * 9);
+
+  const [first, setFirst] = useState(landomNumber1);
+  const [second, setSecond] = useState(landomNumber2);
   const [value, setValue] = useState('');
   const [result, setResult] = useState('');
   const [warning, setWarning] = useState('');
@@ -16,26 +21,18 @@ const GuGuDan = () => {
     e => {
       e.preventDefault();
 
-      const input = inputNum.current;
+      setFirst(landomNumber1);
+      setSecond(landomNumber2);
+
       if (parseInt(value) === first * second) {
-        setFirst(Math.ceil(Math.random() * 9));
-        setSecond(Math.ceil(Math.random() * 9));
         setResult('정답 🙆‍♂️');
-        setScore(prevScore => (prevScore += 10));
         setValue('');
-        input && input.focus(); //input!.focus();
+        setScore(prevScore => (prevScore += 10));
       } else {
-        setFirst(Math.ceil(Math.random() * 9));
-        setSecond(Math.ceil(Math.random() * 9));
         setResult('땡 🙅‍♂️');
         setValue('');
-        input && input.focus();
       }
-      if (chance === 10) {
-        setScore(0);
-        setValue('');
-        setChance(1);
-      } else {
+      if (!(chance === 10)) {
         setChance(prevChance => (prevChance += 1));
       }
     },
@@ -52,18 +49,23 @@ const GuGuDan = () => {
     setValue(onlyNumber);
   };
 
+  useEffect(() => {
+    inputNum.current?.focus();
+  }, []);
   return (
     <>
       <div className="grid  justify-center">
-        <div className="m-3 text-center  text-3xl font-extrabold text-[#145d8a] text-shadow-xl">
+        <div className="m-3 text-center  text-3xl font-extrabold text-shadow-xl">
           구구단 🧮
         </div>
+
         <div className=" grid  text-center font-extrabold">
           기회는 10번! 당신의 점수는?
         </div>
         <div className="my-10 text-center text-5xl font-extrabold text-[#124753] text-shadow-xl">
           {first} X {second} = ?
         </div>
+
         <div className="mt-5 text-2xl">
           <form onSubmit={onSubmitForm}>
             <input
@@ -76,23 +78,30 @@ const GuGuDan = () => {
             <button type="submit" disabled={!value}></button>
           </form>
         </div>
+
         <div className="h-12">
           <div className="  text-center text-red-500">{warning}</div>
         </div>
+
         <div className=" m-3 h-20 text-center text-3xl font-bold">
-          {result === '정답 🙆‍♂️' && (
+          {result === '정답 🙆‍♂️' ? (
             <div className="text-[#005dbf]">{result}</div>
+          ) : (
+            <div className="text-[#dc4754]">{result}</div>
           )}
-          {result === '땡 🙅‍♂️' && <div className="text-[#dc4754]">{result}</div>}
         </div>
 
         <div className="  text-center text-3xl text-shadow-xl">
           Score: {score}
         </div>
       </div>
+
       {chance === 10 && <Modal gugudanScore={score} gugudan={'구구단'} />}
     </>
   );
 };
 
 export default GuGuDan;
+
+// const MainHeader = ts.div`
+// text-red-900`;

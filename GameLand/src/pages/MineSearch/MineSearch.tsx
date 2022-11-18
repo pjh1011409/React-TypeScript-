@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { useEffect, useReducer, createContext, useMemo, Dispatch } from 'react';
+import {
+  useEffect,
+  useReducer,
+  createContext,
+  useMemo,
+  Dispatch,
+  useState,
+} from 'react';
 import Form from './Form';
 import Table from './Table';
 
@@ -13,6 +20,7 @@ import {
   FLAG_CELL,
   CLICK_MINE,
 } from './Action';
+import Modal from '../../components/Modal';
 
 export const CODE = {
   MINE: -7,
@@ -124,7 +132,7 @@ const reducer = (
       const checked: string[] = [];
       let openedCount = 0;
       const checkAround = (row: number, cell: number) => {
-        console.log(row, cell);
+        // console.log(row, cell);
         if (
           row < 0 ||
           row >= tableData.length ||
@@ -203,18 +211,18 @@ const reducer = (
       checkAround(action.row, action.cell);
       let halted = false;
       let result = '';
-      console.log(
-        state.data.row * state.data.cell - state.data.mine,
-        state.openedCount,
-        openedCount
-      );
+      // console.log(
+      //   state.data.row * state.data.cell - state.data.mine,
+      //   state.openedCount,
+      //   openedCount
+      // );
       if (
         state.data.row * state.data.cell - state.data.mine ===
         state.openedCount + openedCount
       ) {
         // 승리
         halted = true;
-        result = `${state.timer}초만에 승리하셨습니다`;
+        result = `${state.timer}초만에 성공!`;
       }
       return {
         ...state,
@@ -233,6 +241,7 @@ const reducer = (
         ...state,
         tableData,
         halted: true,
+        result: '지뢰를 밟으셨군요 😳',
       };
     }
     case FLAG_CELL: {
@@ -288,6 +297,7 @@ const reducer = (
 const MineSearch = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { tableData, halted, timer, result } = state;
+  const [option, setOption] = useState(true);
 
   const value = useMemo(
     () => ({ tableData, halted, dispatch }),
@@ -315,10 +325,20 @@ const MineSearch = () => {
           지뢰를 피해 점수를 획득하자!
         </div>
         <TableContext.Provider value={value}>
-          <Form />
-          <div>{timer}</div>
+          {option && <Form setOption={setOption} />}
+          {!option && (
+            <div className="my-3 grid justify-center ">
+              {' '}
+              <div className="text-center text-lg font-bold text-[#124753]">
+                ⏱ : {timer} sec
+              </div>
+              <div className="  text-center text-red-500">
+                지뢰로 의심되는 곳은 우클릭하여 표시!
+              </div>
+            </div>
+          )}
           <Table />
-          <div>{result}</div>
+          {result && <Modal mine={'지뢰찾기'} mineResult={result} />}
         </TableContext.Provider>
       </div>
     </>

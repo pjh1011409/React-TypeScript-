@@ -23,7 +23,7 @@ const ModalBody = (props: ModalBody) => {
 
             {props.tictactoe === '틱텍토' && 'Winner'}
           </div>
-          <div className="text-center text-3xl font-extrabold text-[#124753]">
+          <div className="text-center text-2xl font-extrabold text-[#124753]">
             {props.gugudan === '구구단' && props.gugudanScore}
             {props.wordRelay === '끝말잇기' && (
               <>
@@ -48,9 +48,12 @@ const ModalBody = (props: ModalBody) => {
                   ? '당첨금 10,000,000 원'
                   : props.lottoResult === 2
                   ? '당첨금 5,000,000 만원'
-                  : '당첨금 1,000,000 원'}
+                  : props.lottoResult === 1
+                  ? '당첨금 1,000,000 만원'
+                  : '꽝🤪'}
               </>
             )}
+            {props.mine === '지뢰찾기' && props.mineResult}
             {props.tictactoe === '틱텍토' && (
               <>
                 {props.tictactoeWinner === '무승부' ? (
