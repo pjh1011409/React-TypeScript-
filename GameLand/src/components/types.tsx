@@ -19,6 +19,9 @@ export interface ModalMain {
   lotto?: string;
   lottoResult?: number;
 
+  mine?: string;
+  mineResult?: string;
+
   tictactoe?: string;
   tictactoeWinner?: string;
 }
@@ -30,6 +33,7 @@ export interface ModalHeader {
   response?: string;
   rsp?: string;
   lotto?: string;
+  mine?: string;
   tictactoe?: string;
 }
 
@@ -54,6 +58,9 @@ export interface ModalBody {
   lotto?: string;
   lottoResult?: number;
 
+  mine?: string;
+  mineResult?: string;
+
   tictactoe?: string;
   tictactoeWinner?: string;
 }
@@ -65,6 +72,7 @@ export interface ModalFooter {
   response?: string;
   rsp?: string;
   lotto?: string;
+  mine?: string;
   tictactoe?: string;
 
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;

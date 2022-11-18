@@ -14,39 +14,39 @@ const getTdStyle = (code: Codes) => {
     case CODE.NORMAL:
     case CODE.MINE:
       return {
-        background: '#444',
+        background: '#77767c',
       };
     case CODE.CLICKED_MINE:
     case CODE.OPENED:
       return {
-        background: 'white',
+        background: '#fffbf4',
       };
     case CODE.QUESTION_MINE:
     case CODE.QUESTION:
       return {
-        background: 'yellow',
+        background: '#eac843',
       };
     case CODE.FLAG_MINE:
     case CODE.FLAG:
       return {
-        background: 'red',
+        background: '#ea5e4e',
       };
     default:
       return {
-        background: 'white',
+        background: '#fffbf4',
       };
   }
 };
 
 const getTdText = (code: Codes) => {
-  console.log('getTdtext');
+  // console.log('getTdtext');
   switch (code) {
     case CODE.NORMAL:
       return '';
     case CODE.MINE:
-      return 'X';
+      return 'x';
     case CODE.CLICKED_MINE:
-      return '펑';
+      return '💣';
     case CODE.FLAG_MINE:
     case CODE.FLAG:
       return '!';
@@ -134,7 +134,7 @@ const RealTd = memo(({ onClickTd, onRightClickTd, data }: RealTdProps) => {
       style={getTdStyle(data)}
       onClick={onClickTd}
       onContextMenu={onRightClickTd}
-      className="h-8 w-8 border-2 border-black text-center"
+      className="h-8 w-8 border-2 border-[#5061b3] text-center"
     >
       {getTdText(data)}
     </td>

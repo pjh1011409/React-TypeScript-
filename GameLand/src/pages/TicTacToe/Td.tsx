@@ -25,7 +25,7 @@ const Td = ({ rowIndex, cellIndex, dispatch, cellData }: Props) => {
   return (
     <td
       onClick={onClickTd}
-      className="h-20 w-20 border-2 border-black text-center"
+      className="h-20 w-20 border-2 border-[#5061b3] text-center"
     >
       {cellData === 'O' && (
         <div className="text-3xl font-extrabold text-blue-700">{cellData}</div>

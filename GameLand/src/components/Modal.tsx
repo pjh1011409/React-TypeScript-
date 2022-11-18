@@ -25,6 +25,7 @@ const Modal = (props: ModalMain) => {
                   response={props.response}
                   rsp={props.rsp}
                   lotto={props.lotto}
+                  mine={props.mine}
                   tictactoe={props.tictactoe}
                 />
                 {/*body*/}
@@ -43,6 +44,8 @@ const Modal = (props: ModalMain) => {
                   rspLose={props.rspLose}
                   lotto={props.lotto}
                   lottoResult={props.lottoResult}
+                  mine={props.mine}
+                  mineResult={props.mineResult}
                   tictactoe={props.tictactoe}
                   tictactoeWinner={props.tictactoeWinner}
                 />
@@ -54,6 +57,7 @@ const Modal = (props: ModalMain) => {
                   response={props.response}
                   rsp={props.rsp}
                   lotto={props.lotto}
+                  mine={props.mine}
                   tictactoe={props.tictactoe}
                   setShowModal={setShowModal}
                 />

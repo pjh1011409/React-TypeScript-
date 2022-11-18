@@ -6,7 +6,7 @@ import Tr from './Tr';
 const Table = () => {
   const { tableData } = useContext(TableContext);
   return (
-    <table className="mx-auto border-collapse">
+    <table className="mx-auto border-collapse border-4 border-[#5061b3]">
       <tbody>
         {Array(tableData.length)
           .fill(null)
