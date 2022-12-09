@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback, useEffect } from 'react';
 import Try from './Try';
 import Modal from '../../components/Modal';
 
@@ -100,6 +100,10 @@ const NumberBaseball = () => {
     },
     []
   );
+
+  useEffect(() => {
+    inputEl.current?.focus();
+  }, []);
 
   return (
     <>

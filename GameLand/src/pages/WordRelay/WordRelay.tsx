@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import Modal from '../../components/Modal';
 
 const WorldRelay = () => {
@@ -43,6 +43,10 @@ const WorldRelay = () => {
     },
     [word, value]
   );
+
+  useEffect(() => {
+    inputWord.current?.focus();
+  }, []);
 
   const onChangeValue = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
