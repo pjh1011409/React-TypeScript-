@@ -14,7 +14,7 @@ const Layout = () => {
         <header>
           <Header />
         </header>
-        <div className="mx-auto mt-3 h-auto min-h-[509px] w-[95%] rounded-xl border-4 border-[#003470] bg-[#d8e4f6]  p-3 font-sans md:w-1/2 ">
+        <div className="md: mx-auto mt-5  min-h-[500px] w-11/12 rounded-xl border-4 border-[#003470] bg-[#d8e4f6] p-3 lg:w-6/12">
           <Outlet />
         </div>
         <footer>
