@@ -16,7 +16,7 @@ const Header: React.FunctionComponent = () => {
     <div>
       <div className="grid h-24 content-end justify-center gap-2 ">
         <div className=" m-3  grid h-14  content-center rounded p-5 text-3xl font-black text-white transition delay-100 duration-300 ease-in-out text-shadow-h2 hover:-translate-y-1 ">
-          <Link to="/">PJH&#39;s Game World &nbsp; 🎮</Link>
+          <Link to="/">Fun Game Studio &nbsp; 🎮</Link>
         </div>
       </div>
 
