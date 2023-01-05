@@ -6,7 +6,7 @@ const ModalFooter = (props: ModalFooter) => {
   return (
     <>
       <div className="flex items-center justify-center rounded-b border-t border-solid border-slate-200 p-6">
-        <button
+        {/* <button
           className=" mr-1 mb-1 rounded bg-[#ffc762] px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-[#00917a]"
           type="button"
           onClick={() => {
@@ -44,11 +44,9 @@ const ModalFooter = (props: ModalFooter) => {
                 window.location.replace('/tic-tac-toe');
             }
           }}
-        >
-          Retry
-        </button>
+        ></button> */}
         <button
-          className="mx-5 mr-1 mb-1 rounded bg-[#00917a] px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-[#00917a]"
+          className="mx-2 mr-1 mb-1 rounded bg-[#00917a] px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-[#00917a]"
           type="button"
           onClick={() => props.setShowModal(false)}
         >
