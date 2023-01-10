@@ -10,8 +10,11 @@
   <br>
 ## 📎 Link
 
+**Hompage**
  👉  https://pjh-gameworld.vercel.app/
 
+**Notion**
+ 👉 [Notion Portfoilo](https://www.notion.so/Fun-Game-Studio-bfcdf292de3c415c80a4c9e6ea719572)
 <br>
 
 ## 🍀 나의 개발일지
@@ -149,47 +152,37 @@
 
 # 🔥 Issue & TroubleShooting
 
-####  👉 
+####  👉 모달창 재사용
 - **Issue**  
-  - 
+  - 게임마다 게임이 종료되면 그에 대한 결과값을 모달창을 통해 출력. 이때, 게임마다 다른 결과값의 모달창이 출력되어야 하기 때문에 8개의 별도의 모달창 컴포넌트 생성 필요. 
 - **trouble shooting**
-  - 
+  - Props를 통해 전달되는 값에 따라 게임종류를 판별하여 하나의 모달창에서 각자 다른 결과값을 출력하게 만듦. 하지만, 다음과 같이 수많은 props가 전달되게 되는 문제도 발생. 따라서, Recoil을 공부하여 전역상태관리를 해보려 한다. 😅
+  ```
+         <ModalHeader
+                  gugudan={props.gugudan}
+                  wordRelay={props.wordRelay}
+                  baseball={props.baseball}
+                  response={props.response}
+                  rsp={props.rsp}
+                  lotto={props.lotto}
+                  mine={props.mine}
+                  tictactoe={props.tictactoe}
+                />
+  ```
 ---
-####  👉 Foreign key constraint
+####  👉 컴포넌트 간의 Props 지옥
 - **Issue**
-  -  커뮤니티, 게시글, 댓글을 삭제하는 과정에서 외래키 참조에 대한 에러 발생.
+  -  지뢰찾기 게임의 경우, 메인 컴포넌트 이외에 테이블을 생성하는 컴포넌트, 그에 따른 가로,세로 생성 컴포넌트가 존재한다. 이때, 메인컴포넌트에서 테이블컴포넌트로 전달될 Props가 많고, 하위 컴포넌트까지는 3번의 Props 전달이 필요하다.
 - **trouble shooting** 
-  - 테이블마다 외래키를 통해 연관관계를 맺고 있기 때문이다. 따라서, **CASCADE문**을 사용하여 삭제시 참조되는 테이블에서도 업데이트가 이루어지게 한다.
+  - 따라서, useReducer을 사용하여 state를 관리하고 업데이트하여 코드를 최적화시켜준다. 그러기 위해서는 결국 하위 컴포넌트에서 Action, Dispatch와 같은 기능들을 사용해야하기 떄문에 Context API를 통해서 전역적으로 관리하여 하위 컴포넌트까지도 다이렉트로 전달할 수 있게 만들어주기
 
-```
-// Example
-@ManyToOne(() => Post, post => post.comments, {
-    nullable: false,
-    onDelete: 'CASCADE',
-  })
-```
----
-####  👉 미들웨어 생성하기
-- **Issue** 
-  - route 생성시 대부분의 기능들이 사용자 인증에 대한 핸들러를 사용
-- **trouble shooting**
-   - 중복적으로 사용되는 핸들러를 재사용하기 위하여 **미들웨어**로 분리
-  - User Middleware : 여러 핸들러에서 유저 정보를 제공
-  - Auth Middleware : 유저 정보 또는 유저 등급에 따른 인증 제공
 
----
-####  👉 Infinite Scroll
-- **Issue** 
-  - 수많은 게시글에 대한 데이터 출력
-- **trouble shooting**
-   - **useSWRInfinite**을 통해서 페이지를 스크롤하는 동작에 반응하여 자동으로 필요한 데이터를 불러오는 기능을 구현
-   - 페이지의 끝이라는 특정지점에 도달하는지 관찰하기 위해 **Intersection Observer API**을 사용
-
-<br>
 
  
 <br>
 
+ 
+<br>
 
 
 
@@ -204,10 +197,6 @@
 **지뢰찾기**|**틱텍토**
 ![지뢰찾기](https://user-images.githubusercontent.com/81337674/208302672-0f1a86f9-63b5-42b0-8207-b148e2833f49.gif)|![틱텍토](https://user-images.githubusercontent.com/81337674/208302674-5466ba4d-785d-4e72-b2fe-f6f6cdebe4ec.gif)
 
-<br>
-
- 
-<br>
-
+<
 
 
