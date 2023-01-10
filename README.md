@@ -2,14 +2,15 @@
 
 <br>
 <strong>심심할 때 하기 좋은 간단한 게임 베스트 8!</strong>
-
 <br>
 
 ## 🗓 프로젝트 기간
 
-2022.10.31 ~ 2022.11.18
+2022.10.31 ~ 2022.11.17
   <br>
 ## 📎 Link
+
+ 👉  https://pjh-gameworld.vercel.app/
 
 <br>
 
@@ -26,6 +27,10 @@
 - [로또뽑기](https://velog.io/@pjh1011409/PJHs-Game-World-%EB%A1%9C%EB%98%90%EB%BD%91%EA%B8%B0)
 - [지뢰찾기](https://velog.io/@pjh1011409/PJHs-Game-World-%EC%A7%80%EB%A2%B0%EC%B0%BE%EA%B8%B0)
 - [틱텍토](https://velog.io/@pjh1011409/PJHs-Game-World-%ED%8B%B1%ED%85%8D%ED%86%A0)
+- [TS(useState, useRef, useCallback, Event Handler)](https://velog.io/@pjh1011409/React-TS-with-Game-%EA%B5%AC%EA%B5%AC%EB%8B%A8)
+- [TS(props, setTimeout/setInterval, typeof/keyof)](https://velog.io/@pjh1011409/React-TSprops-setTimeout-setInterval)
+- [TS(FC, useMemo, useReducer, Context API)](https://velog.io/@pjh1011409/React-TSFC-useMemo-Life-Cycle)
+
 
 </details>
  
@@ -34,131 +39,60 @@
 
 ## ⚙️ 주요 기능 
 
-- ##### 회원가입, 로그인 및 인증 🔐
+- ##### 구구단 𝑿
+  - input 유효성검사
+  - 정답 판별
+  - 횟수 설정
+  - score 계산
   
 
-- ##### 커뮤니티 🌈
-  - 로그인시 커뮤니티를 생성 가능
-  - 중복되는 이름의 커뮤니티는 생성할 수 없도록 유효성 검증
-  - 커뮤니티마다 게시글을 생성 가능
-  - 커뮤니티 프로필 이미지와 배너 이미지를 선택적으로 업로드 가능
-  - 본인이 생성한 커뮤니티에 한해서 수정, 삭제 가능
+- ##### 끝말잇기 ㉠㉡㉢
+  - input 유효성검사
+  - 단어출력
+  - 단어리스트 출력
+  - 플레이어 전환
+  - 승자 판별
 
-- ##### 게시글 ✏️ 
-  - 로그인시 게시글을 생성 가능
-  - 게시글에 선택적으로 이미지 업로드 가능
-  - 본인이 작성한 게시글에 한해서 삭제 가능
 
-- ##### 댓글 달기 💬
-  - 로그인시 게시글마다 댓글 작성 가능
+- ##### 숫자야구 ⚾️ 
+  - input 유효성검사
+  - 난수생성
+  - 정답 판별
+  - 숫자 리스트 출력
+  - 시도 횟수
 
-- ##### 투표하기 👍 
-  - 게사글, 댓글에 좋아요 누르기 가능
+- ##### 반응속도체크 🔴🟢
+  - 일정 시간 후 숫자 변환
+  - 빨강색 클릭 제한
 
-- ##### 검색하기 🔍 
-  - 메인페이지에서 전체 게시글에 대한 검색이 가능
-  - 검색시 입력한 텍스트에 대한 데이터에 하이라이트 출력
+- ##### 가위바위보 ✊✌️🖐
+  - 가위,바위,보 랜덤 출력
+  - 승, 무, 패 판별 
 
-- ##### 사용자 페이지 👤
-  - 해당 사용자가 작성한 게시글과 댓글 목록을 작성일자 순으로 조회 가능
-  - 해당 사용자의 가입날짜를 조회 가능
+- ##### 로또뽑기 🎱  
+  - input 유효성검사
+  - 로또숫자 입력시 정렬 출력
+  - 난수 로또 숫자 출력
+  - 맞은 개수 판별
 
+- ##### 지뢰찾기 💣
+  - 게임판 크기 설정
+  - 지뢰 랜덤 배치
+  - 지뢰 위치 힌트 제공
+  - 일반땅 클릭시 땅따먹기
+
+
+- ##### 틱텍토 🅾️❎
+  - 플레이어 전환
+  - O, X 교차 출력
+  - 1자 빙고 판별
   <br>
 
 
 
 <br>
 
-## 💻 Service Architecture
 
-<img width="800" alt="POP Structure" src="https://user-images.githubusercontent.com/81337674/208282368-622266b2-aa26-451f-95f5-412053261077.png">
-
-
-<br>
-
-## 📄 Project Architecture
-
-#### Client
-
-```
-⭐️ src
-|
-├── 🗂 pages
-│    │ 
-│    ├── 📄 _app.tsx
-│    ├── 📄 index.tsx
-│    ├── 📄 login.tsx
-│    ├── 📄 register.tsx
-│    │ 
-│    ├── 🗂 r
-│    │   ├── 🗂 [sub]
-│    │   │    ├── create.tsx
-│    │   │    └── 🗂 [identifier] ─ 📄 [slug].tsx   
-│    │   └── 📄 [sub].tsx      
-│    │    
-│    ├── 🗂 subs - 📄 create.tsx
-│    └── 🗂 u - 📄 [username].tsx
-│
-├── 🗂 context ── auth.tsx
-│   
-├── 🗂 components 
-│   │
-│   ├── 🗂 common
-│   │     ├── 📄 InputGroup.tsx
-│   │     ├── 📄 Navbar.tsx     
-│   │     ├── 📄 PostCard.tsx
-│   │     └── 📄 Shimmer.tsx
-│   ├── 🗂 mainPage
-│   │     ├── 📄 Introduce.tsx
-│   │     ├── 📄 PostList.tsx     
-│   │     ├── 📄 Search.tsx
-│   │     ├── 📄 Slider.tsx
-│   │     └── 📄 SideBar.tsx
-│   ├── 🗂 postPage
-│   │     ├── 📄 CreateForm.tsx
-│   │     ├── 📄 CreateImage.tsx     
-│   │     ├── 📄 Contents.tsx
-│   │     ├── 📄 CreateComment.tsx
-│   │     └── 📄 CommentList.tsx
-│   ├── 🗂 subPage
-│   │     ├── 📄 SubBar.tsx
-│   │     └── 📄 SubHeader.tsx
-│   └── 🗂 userPage
-│         ├── 📄 Comments.tsx
-│         └── 📄 UserInfo.tsx      
-│  
-├── 🗂 types - 📄 types.tsx
-│
-└── 🗂 styles - 📄 globals.css
-```
-#### Server
-```
-⭐️ src
-|
-├── 📄 data-source.ts
-├── 📄 server.ts
-|
-├── 🗂 entities 
-│    ├── 📄 Entity.ts
-│    ├── 📄 Sub.ts
-│    ├── 📄 Post.ts
-│    ├── 📄 Comment.ts
-│    ├── 📄 Vote.ts
-│    └── 📄 User.ts
-│
-├── 🗂 routes 
-│    ├── 📄 auth.ts
-│    ├── 📄 posts.ts
-│    ├── 📄 subs.ts
-│    ├── 📄 users.ts
-│    └── 📄 votes.ts
-│       
-├── 🗂 middlewares 
-│    ├── 📄 auth.ts
-│    └── 📄 user.ts
-│
-└── 🗂 utils - 📄 helpers.tsx
-```
 
 
 <br>
@@ -174,6 +108,10 @@
   <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white">
   
 <br>
+  <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white">
+  <img src="https://img.shields.io/badge/Styled Components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
+
+<br>
 
  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=Prettier&logoColor=white">
  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=ESLint&logoColor=white">
@@ -181,12 +119,7 @@
  <img src="https://img.shields.io/badge/Babel-F9DC3E?style=for-the-badge&logo=Babel&logoColor=%2361DAFB">
 
   <br>
-    <img src="https://img.shields.io/badge/Testing library-E33332?style=for-the-badge&logo=Testing Library&logoColor=white">
-    <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=Heroku&logoColor=white">
       <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white">
-
-  <br>
-
   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
   <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white">
     
@@ -196,37 +129,31 @@
 
 ## 👍 사용 이유
 
-### Next.js + Typescript
+### Typescript
 
-- SSR방식을 사용함으로써 SEO(검색엔진최적화)에 유리
 - 컴파일 단계에서 타입 관련 에러를 막을 수 있으며, 크로스 브라우징(브라우저 호환성) 문제 해결
 
-### Node.js + Express
+### Webpack
 
-- 내장 HTTP 서버 라이브러리를 포함하고 있어 웹 서버에서 아파치 등의 별도의 소프트웨어 없이 동작하는 것이 가능
-- Javascript 언어로 Front-end 뿐만 아니라 Back-end 개발 환경을 구성할 수 있기에 생산성이 높고 러닝 커브가 줄어듦
-- 일련의 강력한 기능을 제공하며 라우팅과 미들웨어 기반으로 간결하고 유연하게 웹서버를 구현할 수 있음
+- CRA를 사용하지 않고 React를 개발할 환경을 직접 구성해보고 싶은 것이 가장 큰 이유이며, 다양한 플로그인 시스템과 로더를 통해서 강력하고 많은 기능들을 사용 가능.
 
-### PostgreSQL & TypeORM
-- 복잡한 쿼리와 대규모 데이터베이스를 다룰 수 있는 기능이 풍부한 데이터베이스이며, 빠르고 유연한 개발이 가능
-- Node.js 에서 작동하며 항상 최신 JS,TS 기능을 지원하고 다양한 데이터 베이스를 지원하며, 
-코드에 entities와 함께 작업 가능</li>
+### Tailwind CSS + Styled Components
+- 클래스 네이밍에 시간을 들이지 않아도 되며, 중복발생을 고려하지 않아도 되어 협업과 유지보수에도 용이하다. 요즘들어 많이 사용하는 추세와 궁금증이 커서 사용하게 됨. 
+- 아직 익숙하지 않아 TailwindCSS로 구현하지 못한 부분들을 기본 CSS 구문을 사용하는 Styled Components로 해결하였고, Utiliy FirstCSS 와 CSS in JS 형식을 모두 사용해보기 위함도 있음.
+</li>
 
 
-### Axios & useSWR
-- response timeout 처리가 가능하며, Promise 기반으로 만들어져 데이터를 다루기 편리함
-- 여러 컴포넌트들에 모두 동일한 원격의 상태를 공유하며, 캐시된 데이터를 이용하여 효율적인 동작을 만들어냄. 데이터를 가져오는데 특화.
 
 <br>
 
 
 # 🔥 Issue & TroubleShooting
 
-####  👉 재사용성 높이기
+####  👉 
 - **Issue**  
-  - 회원정보는 어느 컴포넌트에서나 자주 쓰이는 데이터. 따라서, 상위 컴포넌트에서 최하위컴포넌트까지 props로 정보를 전달하는 경우 발생
+  - 
 - **trouble shooting**
-  - **Context**에 담아 재사용성을 높이고, **Reducer**를 통하여 관리하고 dispatch를 통해 데이터를 업데이트.
+  - 
 ---
 ####  👉 Foreign key constraint
 - **Issue**
@@ -282,11 +209,5 @@
  
 <br>
 
-## ✚ 추가하고 싶은 기능
 
-1️⃣  
-
-2️⃣ 
-
-3️⃣ 
 
